@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=McLaren&display=swap');
+
+body {
+    font-family: 'McLaren', cursive;
+}
+
+.container {
+    background-image: url("./img/world.png");
+    background-position: 50% 90%;
+    background-size: 80%;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    flex-flow: column wrap;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.card{
+    height: 200px;
+    width: 200px;
+    position: relative;
+    transition: all 1s linear;
+    transform-style: preserve-3d;
+    margin: 10px;
+}
+
+.front,
+.back{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    text-align: center;
+    border-radius: 10px;
+    position: absolute;
+}
+
+.front{
+    background: rgb(245,237,224);
+    z-index: 2;
+    backface-visibility: hidden;
+}
+
+.back{
+    background: rgb(240,117,4);
+    color: #fff;
+    z-index: 1;
+    transform: rotateY(180deg);
+}
+
+.card-container:hover .card{
+    transform: rotateY(180deg);
+}
+
+.card-container{
+    perspective: 1000px;
+}
